@@ -4,20 +4,25 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
+      - main
 
 jobs:
   build_and_deploy_job:
     runs-on: ubuntu-latest
+    name: Build and Deploy Job
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - name: Deploy to Azure Static Web Apps
+      - name: Build And Deploy
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
-          app_location: "/"           # 仓库根目录
-          api_location: ""            # 没有 API
-          app_artifact_location: "/"  # 输出目录
-          skip_app_build: true        # ⚡ 关键，跳过 build
+          #### 👇关键部分
+          app_location: "/"         # 代码路径 (index.html 在根目录就写 "/")
+          api_location: ""          # 没有 API 就留空
+          output_location: "/"      # 构建结果目录（如果只是静态 HTML，也写 "/"）
