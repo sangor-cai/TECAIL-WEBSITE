@@ -1,2 +1,2 @@
 # TECAIL-WEBSITE
-website - 2025
+website2025
