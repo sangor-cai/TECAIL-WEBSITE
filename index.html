@@ -1,174 +1,660 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TECAIL - Innovation for Every Family’s Health</title>
-<style>
-  /* Reset & Base */
-  * { margin:0; padding:0; box-sizing:border-box; font-family: 'Arial', sans-serif; }
-  body { line-height:1.6; color:#333; background-color:#F5F5F5; }
-
-  /* Header / Banner */
-  .banner {
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-    text-align:center;
-    background: linear-gradient(to bottom right, #0B3D91, #8B1C1C);
-    color:white;
-    padding: 0 20px;
-  }
-  .banner h1 { font-size:2.8rem; margin-bottom:1rem; font-weight:bold; }
-  .banner h2 { font-size:1.4rem; margin-bottom:1.5rem; color:#CFAF7B; }
-  .banner p { font-size:1rem; max-width:700px; margin-bottom:2rem; }
-  .banner a { padding:0.8rem 2rem; background:#8B1C1C; color:white; text-decoration:none; font-weight:bold; border-radius:4px; transition:0.3s; }
-  .banner a:hover { background:#6B1515; }
-
-  /* Section common */
-  section { padding:60px 20px; max-width:1200px; margin:0 auto; }
-  h2.section-title { text-align:center; font-size:2rem; margin-bottom:40px; color:#0B3D91; }
-
-  /* Value Propositions */
-  .values { display:flex; flex-wrap:wrap; justify-content:space-around; text-align:center; gap:20px; }
-  .value-item { background:white; flex:1 1 220px; padding:30px 20px; border-radius:8px; box-shadow:0 4px 15px rgba(0,0,0,0.1); transition:0.3s; }
-  .value-item:hover { transform:translateY(-5px); }
-  .value-item h3 { font-size:1.3rem; color:#8B1C1C; margin-bottom:10px; }
-  .value-item p { font-size:0.95rem; color:#555; }
-
-  /* Products */
-  .products { display:flex; flex-wrap:wrap; justify-content:space-around; gap:20px; }
-  .product-card { background:white; flex:1 1 240px; border-radius:8px; overflow:hidden; box-shadow:0 4px 15px rgba(0,0,0,0.1); transition:0.3s; text-align:center; }
-  .product-card:hover { transform:translateY(-5px); }
-  .product-card img { width:100%; height:180px; object-fit:cover; }
-  .product-card h4 { font-size:1.2rem; color:#0B3D91; margin:15px 0 10px; }
-  .product-card p { font-size:0.9rem; color:#555; padding:0 10px 15px; }
-
-  /* Scenarios */
-  .scenarios { display:flex; flex-wrap:wrap; gap:30px; }
-  .scenario { flex:1 1 260px; background:white; border-radius:8px; padding:20px; box-shadow:0 4px 15px rgba(0,0,0,0.1); text-align:center; }
-  .scenario img { width:100%; height:160px; object-fit:cover; border-radius:4px; margin-bottom:15px; }
-  .scenario h4 { font-size:1.2rem; color:#8B1C1C; margin-bottom:10px; }
-  .scenario p { font-size:0.9rem; color:#555; }
-
-  /* Global Strength */
-  .global-strength { background:#0B3D91; color:white; text-align:center; padding:60px 20px; border-radius:8px; }
-  .global-strength p { font-size:1rem; max-width:800px; margin:0 auto; }
-
-  /* Footer CTA */
-  .footer-cta { background:#8B1C1C; color:white; text-align:center; padding:50px 20px; }
-  .footer-cta h3 { font-size:1.8rem; margin-bottom:20px; color:#CFAF7B; }
-  .footer-cta a { padding:0.8rem 2rem; background:#CFAF7B; color:#8B1C1C; text-decoration:none; font-weight:bold; border-radius:4px; transition:0.3s; }
-  .footer-cta a:hover { background:#b89666; }
-
-  /* Responsive */
-  @media(max-width:768px) {
-    .banner h1 { font-size:2rem; }
-    .banner h2 { font-size:1.1rem; }
-    .values, .products, .scenarios { flex-direction:column; align-items:center; }
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TECAIL - Home Healthcare Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #1a6fb0 0%, #0c4a76 100%);
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: #70d6ff;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #70d6ff;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(10, 45, 70, 0.8), rgba(10, 45, 70, 0.8)), url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Particle effect for background */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .particle {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            opacity: 0;
+            animation: float 15s infinite linear;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px);
+                opacity: 0;
+            }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #70d6ff;
+            color: #0c4a76;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Values Section */
+        .values {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: #0c4a76;
+            font-size: 2.5rem;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .value-card {
+            text-align: center;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .value-icon {
+            font-size: 40px;
+            color: #1a6fb0;
+            margin-bottom: 20px;
+        }
+        
+        .value-card h3 {
+            margin-bottom: 15px;
+            color: #0c4a76;
+        }
+        
+        /* Products Section */
+        .products {
+            padding: 80px 0;
+            background: #f0f8ff;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .product-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-info h3 {
+            margin-bottom: 10px;
+            color: #0c4a76;
+        }
+        
+        /* Solutions Section */
+        .solutions {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .solution {
+            display: flex;
+            align-items: center;
+            margin-bottom: 60px;
+            gap: 50px;
+        }
+        
+        .solution:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .solution-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .solution-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .solution-content {
+            flex: 1;
+        }
+        
+        .solution-content h3 {
+            color: #1a6fb0;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        /* Global Section */
+        .global {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #0c4a76 0%, #1a3e59 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .global .section-title {
+            color: white;
+        }
+        
+        .global-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .certifications {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .certification {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px 25px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* Footer CTA */
+        .footer-cta {
+            background: #1a6fb0;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        
+        .footer-cta h2 {
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+        }
+        
+        .footer-cta .btn {
+            background: #ff6b6b;
+            color: white;
+        }
+        
+        /* Footer */
+        footer {
+            background: #0c4a76;
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            color: #70d6ff;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .solution, .solution:nth-child(even) {
+                flex-direction: column;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>TECAIL</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Technology</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<!-- Banner -->
-<section class="banner">
-  <h1>Innovation for Every Family’s Health</h1>
-  <h2>Continuous Innovation for a Healthier Future</h2>
-  <p>At TECAIL, innovation never stops. We integrate AI, precision medical technologies, and user-centered design to deliver smart healthcare solutions that are reliable, simple, and accessible for families worldwide.</p>
-  <a href="#products">Explore Our Solutions →</a>
-</section>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="particles" id="particles"></div>
+        <div class="container hero-content">
+            <h1>Innovation for Every Family's Health</h1>
+            <p>Continuous Innovation for a Healthier Future</p>
+            <p>At TECAIL, innovation never stops. We integrate cutting-edge AI and precision medical technologies to deliver trusted health solutions for families worldwide.</p>
+            <a href="#" class="btn">Explore Our Solutions →</a>
+        </div>
+    </section>
 
-<!-- Our Value -->
-<section id="values">
-  <h2 class="section-title">Our Values / 我们的价值</h2>
-  <div class="values">
-    <div class="value-item">
-      <h3>Smart Innovation</h3>
-      <p>智能创新，融合 AI 与医疗科技，为家庭提供智能化健康管理</p>
-    </div>
-    <div class="value-item">
-      <h3>Reliable Precision</h3>
-      <p>精准可靠，高精度传感器与算法，确保数据可信与稳定</p>
-    </div>
-    <div class="value-item">
-      <h3>Global Expertise</h3>
-      <p>全球经验，FDA、CE、MDR 等国际认证，供应链保障</p>
-    </div>
-    <div class="value-item">
-      <h3>Human-Centered Design</h3>
-      <p>以人为本，简洁易用的设计，贴合家庭日常健康场景</p>
-    </div>
-  </div>
-</section>
+    <!-- Values Section -->
+    <section class="values">
+        <div class="container">
+            <h2 class="section-title">Our Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Smart Innovation</h3>
+                    <p>Leveraging AI to create intelligent healthcare solutions for modern families</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>Reliable Precision</h3>
+                    <p>Medical-grade accuracy in every device we create for your peace of mind</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Global Expertise</h3>
+                    <p>Combining international vision with localized manufacturing capabilities</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h3>Human-Centered Design</h3>
+                    <p>Creating products that put people's needs and experiences first</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Products -->
-<section id="products">
-  <h2 class="section-title">Our Products / 我们的产品</h2>
-  <div class="products">
-    <div class="product-card">
-      <img src="images/bp_monitor.jpg" alt="Blood Pressure Monitor">
-      <h4>Blood Pressure Monitors / 智能血压计</h4>
-      <p>高精度传感器 + AI 算法，实现精准血压监测</p>
-    </div>
-    <div class="product-card">
-      <img src="images/oxygen_concentrator.jpg" alt="Oxygen Concentrator">
-      <h4>Oxygen Concentrators / 制氧机</h4>
-      <p>稳定供氧，守护呼吸健康</p>
-    </div>
-    <div class="product-card">
-      <img src="images/thermometer.jpg" alt="Thermometer">
-      <h4>Thermometers / 智能体温计</h4>
-      <p>快速、精准、家庭必备</p>
-    </div>
-    <div class="product-card">
-      <img src="images/ecg_device.jpg" alt="ECG Device">
-      <h4>ECG Devices / 便携心电设备</h4>
-      <p>居家心脏健康管理，实时监测与分析</p>
-    </div>
-  </div>
-</section>
+    <!-- Products Section -->
+    <section class="products">
+        <div class="container">
+            <h2 class="section-title">Our Products</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1584813389074-44aca72c6a6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Blood Pressure Monitor">
+                    </div>
+                    <div class="product-info">
+                        <h3>Blood Pressure Monitors</h3>
+                        <p>Smart, connected devices for accurate at-home blood pressure monitoring</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1581595221596-998d5df051b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Oxygen Concentrator">
+                    </div>
+                    <div class="product-info">
+                        <h3>Oxygen Concentrators</h3>
+                        <p>Advanced oxygen therapy solutions for respiratory support at home</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1584305574647-0cc949a2bb4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Thermometer">
+                    </div>
+                    <div class="product-info">
+                        <h3>Smart Thermometers</h3>
+                        <p>Precision temperature monitoring with connected health tracking</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="ECG Device">
+                    </div>
+                    <div class="product-info">
+                        <h3>ECG Devices</h3>
+                        <p>Portable electrocardiogram technology for heart health monitoring</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Scenarios -->
-<section id="scenarios">
-  <h2 class="section-title">Solutions in Action / 应用场景</h2>
-  <div class="scenarios">
-    <div class="scenario">
-      <img src="images/family_health.jpg" alt="Family Health">
-      <h4>Family Health Management / 家庭健康管理</h4>
-      <p>让每个家庭轻松监测日常健康</p>
-    </div>
-    <div class="scenario">
-      <img src="images/elderly_care.jpg" alt="Elderly Care">
-      <h4>Elderly & Chronic Care / 老年与慢病护理</h4>
-      <p>提升慢病管理的便捷性与安全感</p>
-    </div>
-    <div class="scenario">
-      <img src="images/home_oxygen.jpg" alt="Home Oxygen Therapy">
-      <h4>Home Oxygen Therapy & Recovery / 居家氧疗与康复</h4>
-      <p>让康复治疗更舒适、更高效</p>
-    </div>
-    <div class="scenario">
-      <img src="images/smart_connected.jpg" alt="Smart Connected Health">
-      <h4>Smart Connected Health / 智能互联健康</h4>
-      <p>设备互联与数据分析，实现个性化健康方案</p>
-    </div>
-  </div>
-</section>
+    <!-- Solutions Section -->
+    <section class="solutions">
+        <div class="container">
+            <h2 class="section-title">Solutions in Action</h2>
+            <div class="solution">
+                <div class="solution-image">
+                    <img src="https://images.unsplash.com/photo-1579684385120-78d48f8c266b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Family Health Management">
+                </div>
+                <div class="solution-content">
+                    <h3>Family Health Management</h3>
+                    <p>Our integrated ecosystem allows families to monitor and manage health data seamlessly. From children to seniors, TECAIL devices provide comprehensive health insights for the whole family.</p>
+                </div>
+            </div>
+            <div class="solution">
+                <div class="solution-image">
+                    <img src="https://images.unsplash.com/photo-1578496479481-5c2c3362e71e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Elderly & Chronic Care">
+                </div>
+                <div class="solution-content">
+                    <h3>Elderly & Chronic Care</h3>
+                    <p>Specialized solutions for aging populations and chronic condition management. Our remote monitoring capabilities provide peace of mind for caregivers and independence for patients.</p>
+                </div>
+            </div>
+            <div class="solution">
+                <div class="solution-image">
+                    <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Home Oxygen Therapy">
+                </div>
+                <div class="solution-content">
+                    <h3>Home Oxygen Therapy & Recovery</h3>
+                    <p>Advanced oxygen solutions for post-operative care and respiratory conditions. Our quiet, efficient concentrators enable comfortable recovery in the home environment.</p>
+                </div>
+            </div>
+            <div class="solution">
+                <div class="solution-image">
+                    <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Smart Connected Health">
+                </div>
+                <div class="solution-content">
+                    <h3>Smart Connected Health</h3>
+                    <p>IoT-enabled devices that connect to our secure cloud platform, allowing healthcare providers to monitor patient data and trends for proactive care and early intervention.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Global Strength -->
-<section class="global-strength">
-  <p>With expertise in R&D, global supply chains, and international compliance (FDA, CE, MDR), TECAIL ensures innovation meets trust.<br>
-  凭借研发实力、全球供应链与国际认证经验（FDA、CE、MDR），TECAIL 将创新转化为可信赖的健康方案。</p>
-</section>
+    <!-- Global Section -->
+    <section class="global">
+        <div class="container">
+            <h2 class="section-title">Global Strength</h2>
+            <div class="global-content">
+                <p>With expertise in R&D, global supply chains, and international compliance (FDA, CE, MDR), TECAIL ensures innovation meets trust. Our products are designed in Shenzhen and trusted by families worldwide.</p>
+                
+                <div class="certifications">
+                    <div class="certification">
+                        <i class="fas fa-check-circle"></i>
+                        <span>FDA Certified</span>
+                    </div>
+                    <div class="certification">
+                        <i class="fas fa-check-circle"></i>
+                        <span>CE Marking</span>
+                    </div>
+                    <div class="certification">
+                        <i class="fas fa-check-circle"></i>
+                        <span>MDR Compliance</span>
+                    </div>
+                    <div class="certification">
+                        <i class="fas fa-check-circle"></i>
+                        <span>ISO 13485</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Footer CTA -->
-<section class="footer-cta">
-  <h3>Partner with TECAIL and create innovative healthcare solutions that matter / 携手 TECAIL，共创有价值的健康创新方案</h3>
-  <a href="mailto:commercial@tecail.com">Contact Us → / 联系我们 →</a>
-</section>
+    <!-- Footer CTA -->
+    <section class="footer-cta">
+        <div class="container">
+            <h2>Partner with TECAIL and create innovative healthcare solutions that matter.</h2>
+            <a href="#" class="btn">Contact Us →</a>
+        </div>
+    </section>
 
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>TECAIL</h3>
+                    <p>Transforming home healthcare through AI innovation and precision medical technology.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Products</a></li>
+                        <li><a href="#">Technology</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Tech Avenue, Shenzhen, China</p>
+                    <p><i class="fas fa-phone"></i> +86 123 4567 7890</p>
+                    <p><i class="fas fa-envelope"></i> info@tecail.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 TECAIL. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Create particle effect for hero section
+        document.addEventListener('DOMContentLoaded', function() {
+            const particlesContainer = document.getElementById('particles');
+            const numberOfParticles = 30;
+            
+            for (let i = 0; i < numberOfParticles; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random size
+                const size = Math.random() * 5 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random position
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                particle.style.left = `${posX}%`;
+                particle.style.top = `${posY}%`;
+                
+                // Random animation delay
+                const delay = Math.random() * 15;
+                particle.style.animationDelay = `${delay}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        });
+    </script>
 </body>
 </html>
