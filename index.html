@@ -18,9 +18,13 @@
   <!-- Header / 导航栏 -->
   <header class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-      <!-- Logo 位置预留，可替换为图片，建议尺寸：宽120px，高40px，格式PNG/SVG -->
+      <!-- Logo 位置预留
+           推荐尺寸：PC宽120px，高40px；移动端可缩放至80px高
+           建议格式：PNG（透明背景）或SVG
+           文件大小控制在50KB以内，保证加载速度
+      -->
       <div class="text-2xl font-bold tracking-wide">
-        <img src="images/web-logo.png" alt="TECAIL Logo" class="h-10 w-auto">
+        <img src="images/web-logo.png" alt="TECAIL Logo" class="h-10 w-auto md:h-12">
       </div>
 
       <!-- PC端菜单 -->
@@ -76,6 +80,11 @@
         Learn More
       </a>
     </div>
+    <!-- Hero 背景图建议：
+         尺寸：1920x1080px，移动端裁剪为750x1334px
+         格式：JPG/WebP，高质量压缩 100-200KB
+         保证加载速度，同时保持清晰度
+    -->
   </section>
 
   <!-- About Section / 关于我们 -->
@@ -85,7 +94,11 @@
       TECAIL is a high-tech company focused on home healthcare products, committed to deeply integrating AI and precision medical technologies.
       Headquartered in Shenzhen, China, TECAIL provides trusted, high-quality health solutions to families worldwide, combining global vision with localized manufacturing capabilities.
     </p>
-    <!-- About 图像预留位置，建议宽度1000px，高度500px，格式 JPG/PNG/SVG -->
+    <!-- About 图像预留位置
+         建议尺寸：PC 1000x500px，移动端宽度100%自适应
+         格式：JPG/PNG/WebP
+         文件大小建议：50-150KB
+    -->
     <div class="flex justify-center">
       <img src="images/about-placeholder.jpg" alt="About TECAIL" class="rounded-2xl shadow-lg w-full md:w-2/3 object-cover">
     </div>
@@ -97,7 +110,11 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
       <!-- 产品卡片示例 -->
       <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
-        <!-- 产品图占位，建议尺寸：宽400px，高300px -->
+        <!-- 产品图占位
+             推荐尺寸：PC 400x300px，移动端宽度自适应
+             格式：JPG/WebP
+             文件大小建议：30-80KB
+        -->
         <img src="images/product-bp-placeholder.jpg" alt="Smart Blood Pressure Monitor" class="h-48 w-full object-cover">
         <div class="p-6">
           <h3 class="text-xl font-semibold mb-2 text-blue-800">Smart Blood Pressure Monitor</h3>
@@ -137,29 +154,4 @@
       </div>
       <div class="flex flex-col space-y-2 text-sm">
         <a href="#about" class="hover:text-white">About</a>
-        <a href="#products" class="hover:text-white">Products</a>
-        <a href="#services" class="hover:text-white">Services</a>
-        <a href="#team" class="hover:text-white">Team</a>
-        <a href="#contact" class="hover:text-white">Contact</a>
-      </div>
-      <div class="text-sm space-y-2">
-        <p><strong>Email:</strong> <a href="mailto:info@tecail.com" class="hover:text-white underline">info@tecail.com</a></p>
-        <p><strong>Business:</strong> <a href="mailto:calvin@tecail.com" class="hover:text-white underline">calvin@tecail.com</a></p>
-      </div>
-    </div>
-    <div class="mt-8 text-center text-sm text-gray-400">
-      © 2020-2025 TECAIL Health Group. All rights reserved. | <a href="#" class="hover:text-white">Privacy Policy</a> | <a href="#" class="hover:text-white">Terms of Service</a>
-    </div>
-  </footer>
-
-  <!-- JS 控制移动端汉堡菜单 -->
-  <script>
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    hamburger.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-  </script>
-
-</body>
-</html>
+        <a href="#products" class="hover:text-white">Products</a
