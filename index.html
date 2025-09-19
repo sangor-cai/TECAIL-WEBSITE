@@ -5,9 +5,13 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>TECAIL - Creating Exceptional Healthcare Product Experiences</title>
   <meta name="description" content="TECAIL - AI-driven home healthcare devices. Smart BP, ECG, wearables, glucose meters. Based in Shenzhen, serving global users." />
+  <meta name="keywords" content="TECAIL, healthcare devices, AI healthcare, smart blood pressure monitor, ECG, wearable health devices, smart glucose meter, Shenzhen, medical technology, family health, FDA MDR CE" />
+
+  <!-- 网站图标 -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
   <!-- ================= Tailwind 引入（开发用） ================= -->
-  <!-- 生产建议：使用 Tailwind CLI / PostCSS 编译出精简 CSS（只包含用到的类） -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- ================= Tailwind 自定义主题（颜色/字号） ================= -->
@@ -17,15 +21,13 @@
         extend: {
           colors: {
             /* 医疗紫色体系：主色与分层 */
-            primaryPurple: '#7C3AED', // 主紫色（标题、重点）
-            purpleDark: '#5B21B6',    // 深紫（按钮、强调）
-            purpleMid: '#8B5CF6',     // 中紫（悬停）
-            purpleSoft: '#DDD6FE',    // 柔和浅紫（卡片/分区背景）
-            purpleLight: '#F3EFFA',   // 极浅紫（整体背景）
-            /* 文本色 */
+            primaryPurple: '#7C3AED',
+            purpleDark: '#5B21B6',
+            purpleMid: '#8B5CF6',
+            purpleSoft: '#DDD6FE',
+            purpleLight: '#F3EFFA',
             textDark: '#111827',
             textGray: '#4B5563',
-            /* 页面背景色 */
             pageBg: '#FBFAFF'
           },
           fontSize: {
@@ -40,9 +42,7 @@
   </script>
 
   <style>
-    /* 平滑滚动（可根据团队偏好开启/关闭） */
     html { scroll-behavior: smooth; }
-    /* 页面背景（与 tailwind 配置一致） */
     body { background-color: #FBFAFF; }
   </style>
 </head>
