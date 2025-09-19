@@ -1,25 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TECAIL - Home Healthcare Solutions</title>
-  
-  <!-- Tailwind CSS CDN -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TECAIL - Creating Exceptional Healthcare Product Experiences</title>
+  <meta name="description" content="TECAIL - AI-driven home healthcare devices. Smart BP, ECG, wearables, glucose meters. Based in Shenzhen, serving global users." />
+
+  <!-- ================= Tailwind 引入（开发用） ================= -->
+  <!-- 生产建议：使用 Tailwind CLI / PostCSS 编译出精简 CSS（只包含用到的类） -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Tailwind 自定义品牌色配置 -->
+  <!-- ================= Tailwind 自定义主题（颜色/字号） ================= -->
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            tecailBlue: '#1E40AF',    // 主蓝色，用于标题和重点文字
-            tecailGreen: '#10B981',   // 主绿色，用于产品标题/按钮
-            tecailTeal: '#14B8A6',    // 青色，用于服务板块标题
-            tecailIndigo: '#4F46E5',  // 靛蓝，用于团队板块标题
-            tecailEmerald: '#059669', // 翡翠绿，用于按钮和联系方式
-            tecailGray: '#F9FAFB',    // 浅灰色，用作背景
+            /* 医疗紫色体系：主色与分层 */
+            primaryPurple: '#7C3AED', // 主紫色（标题、重点）
+            purpleDark: '#5B21B6',    // 深紫（按钮、强调）
+            purpleMid: '#8B5CF6',     // 中紫（悬停）
+            purpleSoft: '#DDD6FE',    // 柔和浅紫（卡片/分区背景）
+            purpleLight: '#F3EFFA',   // 极浅紫（整体背景）
+            /* 文本色 */
+            textDark: '#111827',
+            textGray: '#4B5563',
+            /* 页面背景色 */
+            pageBg: '#FBFAFF'
+          },
+          fontSize: {
+            'h1': ['3rem', '1.05'],
+            'h2': ['2.25rem', '1.2'],
+            'h3': ['1.25rem', '1.4'],
+            'base': ['1rem', '1.6']
           }
         }
       }
@@ -27,232 +40,431 @@
   </script>
 
   <style>
-    /* 平滑滚动效果，可根据需要移除 */
+    /* 平滑滚动（可根据团队偏好开启/关闭） */
     html { scroll-behavior: smooth; }
+    /* 页面背景（与 tailwind 配置一致） */
+    body { background-color: #FBFAFF; }
   </style>
 </head>
-<body class="font-sans text-gray-900">
+<body class="font-sans text-textDark bg-pageBg">
 
-  <!-- ================= Header / 导航栏 ================= -->
-  <header class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-      <!-- Logo 位置预留，可替换为图片 -->
-      <!-- 建议尺寸: 宽120px 高40px, PNG/SVG -->
-      <div class="text-2xl font-bold tracking-wide">
-        <img src="images/web-logo.png" alt="TECAIL Logo" class="h-10 w-auto md:h-12">
-      </div>
+  <!-- ====================================================================== -->
+  <!-- HEADER（顶部导航） - 可修改项已在注释中标明 -->
+  <!-- ====================================================================== -->
+  <header class="fixed top-0 left-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 py-3 md:py-4 flex items-center justify-between">
+      <!-- LOGO 区（可替换 images/web-logo.png） -->
+      <a href="#" class="flex items-center gap-3" aria-label="TECAIL Home">
+        <!-- logo 建议：SVG 或 PNG（透明背景），PC 高度建议 40px，移动 28~32px -->
+        <img src="images/web-logo.png" alt="TECAIL Logo" class="h-8 md:h-10 w-auto" loading="lazy">
+        <span class="text-sm md:text-base font-semibold text-primaryPurple"> </span>
+      </a>
 
-      <!-- PC端导航菜单 -->
-      <nav class="hidden md:flex space-x-8 text-base font-medium text-gray-700">
-        <a href="#about" class="hover:text-tecailBlue transition">About</a>
-        <a href="#products" class="hover:text-tecailGreen transition">Products</a>
-        <a href="#services" class="hover:text-tecailTeal transition">Services</a>
-        <a href="#team" class="hover:text-tecailIndigo transition">Team</a>
-        <a href="#contact" class="hover:text-tecailEmerald transition">Contact</a>
+      <!-- 桌面导航（如需修改菜单项或顺序，请在此处调整） -->
+      <nav class="hidden md:flex items-center gap-8 text-textGray text-base" aria-label="Main Navigation">
+        <a href="#about" class="hover:text-primaryPurple transition">About</a>
+        <a href="#products" class="hover:text-primaryPurple transition">Products</a>
+        <a href="#services" class="hover:text-primaryPurple transition">Services</a>
+        <a href="#team" class="hover:text-primaryPurple transition">Team</a>
+        <a href="#contact" class="hover:text-primaryPurple transition">Contact</a>
       </nav>
 
-      <!-- PC端按钮 & 移动端汉堡 -->
-      <div class="flex items-center space-x-4">
-        <a href="#contact" class="hidden md:inline-block bg-tecailEmerald text-white px-4 py-2 rounded-lg hover:bg-green-500 transition">
+      <!-- 操作区：CTA（桌面显示）+ 汉堡（移动） -->
+      <div class="flex items-center gap-3">
+        <!-- 桌面 CTA：可调整文字与链接 -->
+        <a href="#contact" class="hidden md:inline-block bg-purpleDark hover:bg-primaryPurple text-white px-4 py-2 rounded-md text-sm transition">
           Get in Touch
         </a>
-        <!-- 汉堡菜单按钮（移动端） -->
-        <button id="hamburger" class="md:hidden focus:outline-none">
-          <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+
+        <!-- 移动端汉堡按钮 -->
+        <button id="hamburger" aria-label="Open menu" aria-expanded="false" class="md:hidden p-2 rounded-md text-textGray focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
         </button>
       </div>
     </div>
 
-    <!-- 移动端菜单 -->
-    <div id="mobileMenu" class="md:hidden hidden bg-white shadow-lg">
-      <nav class="flex flex-col space-y-4 px-6 py-6 text-base font-medium text-gray-700">
-        <a href="#about" class="hover:text-tecailBlue transition">About</a>
-        <a href="#products" class="hover:text-tecailGreen transition">Products</a>
-        <a href="#services" class="hover:text-tecailTeal transition">Services</a>
-        <a href="#team" class="hover:text-tecailIndigo transition">Team</a>
-        <a href="#contact" class="hover:text-tecailEmerald transition">Contact</a>
-        <a href="#contact" class="bg-tecailEmerald text-white px-4 py-2 rounded-lg text-center mt-2 block hover:bg-green-500 transition">
-          Get in Touch
-        </a>
+    <!-- 移动端菜单（默认 hidden，通过 JS 切换） -->
+    <div id="mobileMenu" class="md:hidden hidden bg-white/98 shadow-lg">
+      <nav class="px-6 py-4 flex flex-col gap-3 text-textGray" aria-label="Mobile Navigation">
+        <a href="#about" class="py-2 hover:text-primaryPurple">About</a>
+        <a href="#products" class="py-2 hover:text-primaryPurple">Products</a>
+        <a href="#services" class="py-2 hover:text-primaryPurple">Services</a>
+        <a href="#team" class="py-2 hover:text-primaryPurple">Team</a>
+        <a href="#contact" class="py-2 hover:text-primaryPurple">Contact</a>
+        <a href="#contact" class="mt-2 inline-block bg-purpleDark text-white text-center px-4 py-2 rounded-md">Get in Touch</a>
       </nav>
     </div>
   </header>
 
-  <!-- ================= Hero Section / 首页大图 ================= -->
-  <section class="relative h-screen flex items-center justify-center bg-cover bg-center mt-16"
+  <!-- ====================================================================== -->
+  <!-- HERO（全屏大图） -->
+  <!-- 建议替换图片：images/hero-placeholder.jpg（1920×1080，WebP/JPG，压缩 100~250KB） -->
+  <!-- ====================================================================== -->
+  <section id="home" class="relative h-screen flex items-center justify-center bg-center bg-cover mt-16"
            style="background-image: url('images/hero-placeholder.jpg');">
-    <!-- 背景渐变遮罩 -->
-    <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/60"></div>
-    <div class="relative z-10 text-center text-white px-6">
-      <h1 class="text-4xl md:text-6xl font-bold mb-6">
+    <!-- 渐变遮罩增加文字可读性 -->
+    <div class="absolute inset-0 bg-gradient-to-b from-purpleDark/75 via-primaryPurple/40 to-purpleDark/60"></div>
+
+    <div class="relative z-10 px-6 text-center max-w-3xl">
+      <h1 class="text-white font-bold text-h1 mb-4 drop-shadow-lg">
         Creating Exceptional Healthcare Product Experiences
       </h1>
-      <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8">
+      <p class="text-white/90 text-base md:text-lg mb-6">
         TECAIL integrates AI and precision medical technologies to deliver trusted home healthcare solutions worldwide.
       </p>
-      <a href="#products" class="bg-tecailEmerald text-white px-6 py-3 rounded-xl text-lg inline-block hover:bg-green-500 transition">
-        Learn More
-      </a>
+      <div class="flex justify-center gap-4">
+        <a href="#products" class="bg-purpleDark hover:bg-primaryPurple text-white px-6 py-3 rounded-md shadow transition">
+          Explore Products
+        </a>
+        <a href="#contact" class="bg-white/90 hover:bg-white text-purpleDark px-6 py-3 rounded-md shadow transition">
+          Contact Us
+        </a>
+      </div>
     </div>
   </section>
 
-  <!-- ================= About Section / 关于我们 ================= -->
-  <section id="about" class="py-20 bg-white max-w-7xl mx-auto px-6 text-center">
-    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-tecailIndigo">About Us</h2>
-    <p class="max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed mb-10">
-      TECAIL is a high-tech company focused on home healthcare products, committed to deeply integrating AI and precision medical technologies.
-      Headquartered in Shenzhen, China, TECAIL provides trusted, high-quality health solutions to families worldwide, combining global vision with localized manufacturing capabilities.
-    </p>
-    <!-- About 图片占位 -->
-    <!-- 建议尺寸: 宽1000px 高500px, JPG/PNG/SVG -->
-    <!-- 可优化: 图片 WebP 格式, 添加 loading="lazy" -->
-    <div class="flex justify-center">
-      <img src="images/about-placeholder.jpg" alt="About TECAIL" class="rounded-2xl shadow-lg w-full md:w-2/3 object-cover">
+  <!-- ====================================================================== -->
+  <!-- ABOUT（宽幅横幅 + 内容） -->
+  <!-- 横幅图片与 Hero 视觉保持一致比例，图片名：images/about-hero-placeholder.jpg -->
+  <!-- 推荐尺寸：1920×700 (~150-300KB，WebP更好) -->
+  <!-- 如果想在横幅上显示不同关键词，可直接替换下方 <span> 文本 -->
+  <!-- ====================================================================== -->
+  <section id="about" aria-labelledby="about-heading" class="w-full">
+    <!-- About 横幅（full-bleed） -->
+    <div class="relative w-full h-64 md:h-72 lg:h-96 bg-center bg-cover"
+         style="background-image: url('images/about-hero-placeholder.jpg');">
+      <!-- 遮罩 -->
+      <div class="absolute inset-0 bg-gradient-to-b from-purpleDark/60 to-primaryPurple/10"></div>
+      <!-- 关键词覆盖（可替换文本或样式） -->
+      <div class="relative z-10 flex items-center justify-center h-full px-6">
+        <div class="text-center">
+          <p class="text-white text-sm md:text-base mb-2">Keywords</p>
+          <h3 class="text-white font-bold text-2xl md:text-4xl drop-shadow-md">Innovation · AI Technology · Family Health</h3>
+        </div>
+      </div>
     </div>
-  </section>
 
-  <!-- ================= Products Section / 产品展示 ================= -->
-  <section id="products" class="py-20 bg-tecailGray max-w-7xl mx-auto px-6 text-center">
-    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-tecailGreen">Our Core Products</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-      <!-- 产品卡片示例 -->
-      <!-- 建议产品图尺寸: 宽400px 高300px, JPG/PNG/WebP -->
-      <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
-        <img src="images/product-bp-placeholder.jpg" alt="Smart Blood Pressure Monitor" class="h-48 w-full object-cover">
-        <div class="p-6">
-          <h3 class="text-xl font-semibold mb-2 text-tecailBlue">Smart Blood Pressure Monitor</h3>
-          <p class="text-gray-600 text-sm">High-precision sensors with AI algorithms for accurate monitoring.</p>
+    <!-- About 内容主体 -->
+    <div class="max-w-6xl mx-auto px-6 md:px-8 py-12 text-center">
+      <h2 id="about-heading" class="text-h2 font-bold text-primaryPurple mb-4">About Us</h2>
+      <p class="text-textGray text-base md:text-lg max-w-3xl mx-auto leading-relaxed mb-8">
+        TECAIL Health Group focuses on innovation in home healthcare devices — combining AI, precision sensors,
+        and human-centred design to make medical-grade monitoring accessible for families worldwide.
+      </p>
+
+      <!-- 三个价值点（参考 lumen 的简洁排列） -->
+      <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="p-6 bg-white rounded-xl shadow-sm">
+          <h4 class="font-semibold mb-2 text-purpleDark">AI-driven Accuracy</h4>
+          <p class="text-textGray text-sm">Advanced algorithms for precise, reliable home monitoring.</p>
         </div>
-      </div>
-
-      <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
-        <img src="images/product-ecg-placeholder.jpg" alt="Portable ECG Device" class="h-48 w-full object-cover">
-        <div class="p-6">
-          <h3 class="text-xl font-semibold mb-2 text-tecailIndigo">Portable ECG Device</h3>
-          <p class="text-gray-600 text-sm">Home-friendly heart monitoring with real-time detection.</p>
+        <div class="p-6 bg-white rounded-xl shadow-sm">
+          <h4 class="font-semibold mb-2 text-purpleDark">User-Friendly Design</h4>
+          <p class="text-textGray text-sm">Intuitive interfaces that suit all family ages and scenarios.</p>
         </div>
-      </div>
-
-      <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
-        <img src="images/product-wearable-placeholder.jpg" alt="Wearable Health Devices" class="h-48 w-full object-cover">
-        <div class="p-6">
-          <h3 class="text-xl font-semibold mb-2 text-tecailTeal">Wearable Health Devices</h3>
-          <p class="text-gray-600 text-sm">All-day heart rate, SpO2, and activity tracking.</p>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
-        <img src="images/product-glucose-placeholder.jpg" alt="Smart Glucose Meter" class="h-48 w-full object-cover">
-        <div class="p-6">
-          <h3 class="text-xl font-semibold mb-2 text-tecailEmerald">Smart Glucose Meter</h3>
-          <p class="text-gray-600 text-sm">Cloud syncing and analytics for diabetes management.</p>
+        <div class="p-6 bg-white rounded-xl shadow-sm">
+          <h4 class="font-semibold mb-2 text-purpleDark">Global Compliance</h4>
+          <p class="text-textGray text-sm">Design and manufacturing aligned with FDA/CE/MDR standards.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ================= Services Section / 服务能力 ================= -->
-  <section id="services" class="py-20 bg-white max-w-7xl mx-auto px-6 text-center">
-    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-tecailTeal">Our Services</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-      <div class="bg-tecailGray rounded-2xl p-8 shadow-md hover:shadow-xl transition">
-        <h3 class="text-xl font-semibold mb-4 text-tecailBlue">AI Health Analytics</h3>
-        <p class="text-gray-700 text-sm">Analyze health data using AI algorithms for proactive home monitoring.</p>
-      </div>
-      <div class="bg-tecailGray rounded-2xl p-8 shadow-md hover:shadow-xl transition">
-        <h3 class="text-xl font-semibold mb-4 text-tecailIndigo">Custom Device Integration</h3>
-        <p class="text-gray-700 text-sm">Tailored solutions to integrate multiple health devices for families.</p>
-      </div>
-      <div class="bg-tecailGray rounded-2xl p-8 shadow-md hover:shadow-xl transition">
-        <h3 class="text-xl font-semibold mb-4 text-tecailEmerald">Global Support & Consulting</h3>
-        <p class="text-gray-700 text-sm">Regulatory guidance, FDA/MDR compliance and international support.</p>
+  <!-- ====================================================================== -->
+  <!-- PRODUCTS（卡片网格） -->
+  <!-- 图片建议：images/product-xxx.jpg 或 .webp，尺寸 800×600 或 400×300，根据展示调整 -->
+  <!-- ====================================================================== -->
+  <section id="products" class="py-12 max-w-7xl mx-auto px-6 md:px-8">
+    <h2 class="text-h2 font-bold text-primaryPurple text-center mb-8">Our Core Products</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Smart Blood Pressure Monitor -->
+      <article class="bg-white rounded-2xl shadow-sm overflow-hidden hover:shadow-md transition">
+        <img src="images/product-bp-placeholder.jpg" alt="Smart Blood Pressure Monitor" class="w-full h-48 object-cover" loading="lazy">
+        <div class="p-4">
+          <h3 class="text-sm font-semibold text-purpleDark mb-1">Smart Blood Pressure Monitor</h3>
+          <p class="text-textGray text-xs">High-precision sensors with AI algorithms for accurate monitoring and cloud sync.</p>
+        </div>
+      </article>
+
+      <!-- Portable ECG Device -->
+      <article class="bg-white rounded-2xl shadow-sm overflow-hidden hover:shadow-md transition">
+        <img src="images/product-ecg-placeholder.jpg" alt="Portable ECG Device" class="w-full h-48 object-cover" loading="lazy">
+        <div class="p-4">
+          <h3 class="text-sm font-semibold text-purpleDark mb-1">Portable ECG Device</h3>
+          <p class="text-textGray text-xs">Real-time heart monitoring with intelligent analysis.</p>
+        </div>
+      </article>
+
+      <!-- Wearable Health Devices -->
+      <article class="bg-white rounded-2xl shadow-sm overflow-hidden hover:shadow-md transition">
+        <img src="images/product-wearable-placeholder.jpg" alt="Wearable Health Devices" class="w-full h-48 object-cover" loading="lazy">
+        <div class="p-4">
+          <h3 class="text-sm font-semibold text-purpleDark mb-1">Wearable Health Devices</h3>
+          <p class="text-textGray text-xs">All-day heart rate, SpO₂, activity tracking and personalized insights.</p>
+        </div>
+      </article>
+
+      <!-- Smart Glucose Meter -->
+      <article class="bg-white rounded-2xl shadow-sm overflow-hidden hover:shadow-md transition">
+        <img src="images/product-glucose-placeholder.jpg" alt="Smart Glucose Meter" class="w-full h-48 object-cover" loading="lazy">
+        <div class="p-4">
+          <h3 class="text-sm font-semibold text-purpleDark mb-1">Smart Glucose Meter</h3>
+          <p class="text-textGray text-xs">Precise diabetes management with cloud data and analytics.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- SERVICES（服务能力） -->
+  <!-- ====================================================================== -->
+  <section id="services" class="py-12 bg-purpleLight">
+    <div class="max-w-6xl mx-auto px-6 md:px-8">
+      <h2 class="text-h2 font-bold text-primaryPurple text-center mb-8">Our Services</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="p-6 rounded-xl bg-white shadow-sm">
+          <h4 class="text-lg font-semibold text-purpleDark mb-2">Innovative R&D & Design</h4>
+          <p class="text-textGray text-sm">Sensors, algorithms, and UX tailored for home healthcare scenarios.</p>
+        </div>
+        <div class="p-6 rounded-xl bg-white shadow-sm">
+          <h4 class="text-lg font-semibold text-purpleDark mb-2">OEM / ODM</h4>
+          <p class="text-textGray text-sm">Customization, manufacturing and local support for global markets.</p>
+        </div>
+        <div class="p-6 rounded-xl bg-white shadow-sm">
+          <h4 class="text-lg font-semibold text-purpleDark mb-2">Regulatory & After-sales</h4>
+          <p class="text-textGray text-sm">Certification support (FDA/CE/MDR) and technical after-sales service.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ================= Team Section / 团队介绍 ================= -->
-  <section id="team" class="py-20 bg-tecailGray max-w-7xl mx-auto px-6 text-center">
-    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-tecailIndigo">Our Team</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10">
-      <!-- 团队成员卡片 -->
-      <!-- 图片建议尺寸: 宽400px 高400px, JPG/PNG/WebP -->
-      <div class="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition">
-        <img src="images/team-placeholder.jpg" alt="Team Member" class="h-48 w-full object-cover rounded-xl mb-4">
-        <h3 class="text-lg font-semibold text-tecailBlue">John Doe</h3>
-        <p class="text-gray-600 text-sm">CEO & Founder</p>
-      </div>
-      <div class="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition">
-        <img src="images/team-placeholder.jpg" alt="Team Member" class="h-48 w-full object-cover rounded-xl mb-4">
-        <h3 class="text-lg font-semibold text-tecailGreen">Jane Smith</h3>
-        <p class="text-gray-600 text-sm">CTO</p>
-      </div>
-      <div class="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition">
-        <img src="images/team-placeholder.jpg" alt="Team Member" class="h-48 w-full object-cover rounded-xl mb-4">
-        <h3 class="text-lg font-semibold text-tecailIndigo">Alice Lee</h3>
-        <p class="text-gray-600 text-sm">Head of Product</p>
-      </div>
-      <div class="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition">
-        <img src="images/team-placeholder.jpg" alt="Team Member" class="h-48 w-full object-cover rounded-xl mb-4">
-        <h3 class="text-lg font-semibold text-tecailEmerald">Bob Chen</h3>
-        <p class="text-gray-600 text-sm">Head of Marketing</p>
+  <!-- ====================================================================== -->
+  <!-- TEAM（团队介绍） - 已将介绍优化为自然英文描述（可按需修改） -->
+  <!-- 图片建议：images/team-xxx.jpg，尺寸 600×600（方形）或 800×600，File size 50-200KB -->
+  <!-- ====================================================================== -->
+  <section id="team" class="py-12">
+    <div class="max-w-6xl mx-auto px-6 md:px-8 text-center">
+      <h2 class="text-h2 font-bold text-primaryPurple mb-6">Our Team</h2>
+      <p class="text-textGray max-w-3xl mx-auto mb-8">
+        Experienced cross-disciplinary team including product, engineering, medical advisors and supply chain professionals.
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- SANGOR CAI（已翻译优化） -->
+        <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
+          <img src="images/team-sangor.jpg" alt="Sangor Cai" class="w-full h-44 object-cover" loading="lazy">
+          <div class="p-4 text-left">
+            <h3 class="font-semibold text-purpleDark">Sangor Cai</h3>
+            <p class="text-textGray text-xs mt-2">
+              Senior Product Lead with over 10 years in the medical device industry. Led many Class II products including blood pressure monitors (BPM), blood glucose meters (BGM), thermometers, and ECG devices. Previously managed medical product portfolios at Lifesense and Liesheng.
+            </p>
+          </div>
+        </div>
+
+        <!-- CALVIN（已翻译优化） -->
+        <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
+          <img src="images/team-calvin.jpg" alt="Calvin" class="w-full h-44 object-cover" loading="lazy">
+          <div class="p-4 text-left">
+            <h3 class="font-semibold text-purpleDark">Calvin</h3>
+            <p class="text-textGray text-xs mt-2">
+              Head of Business Development with 10 years of sales and project experience in the medical device field. Maintains partnerships and collaborations with 10+ leading global and regional brands.
+            </p>
+          </div>
+        </div>
+
+        <!-- TAO（已翻译优化） -->
+        <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
+          <img src="images/team-tao.jpg" alt="Tao" class="w-full h-44 object-cover" loading="lazy">
+          <div class="p-4 text-left">
+            <h3 class="font-semibold text-purpleDark">Tao</h3>
+            <p class="text-textGray text-xs mt-2">
+              Senior Engineer specializing in medical device hardware and algorithm/software engineering, with more than 10 years' experience in device engineering and embedded systems.
+            </p>
+          </div>
+        </div>
+
+        <!-- 占位 / 更多成员 -->
+        <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
+          <img src="images/team-placeholder.jpg" alt="Team Member" class="w-full h-44 object-cover" loading="lazy">
+          <div class="p-4 text-left">
+            <h3 class="font-semibold text-purpleDark">Your Name Here</h3>
+            <p class="text-textGray text-xs mt-2">Role description placeholder — replace with real bio.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ================= Contact Section / 联系我们 ================= -->
-  <section id="contact" class="py-20 bg-white max-w-7xl mx-auto px-6 text-center">
-    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-tecailEmerald">Contact Us</h2>
-    <p class="max-w-2xl mx-auto text-gray-700 mb-8">
-      Have questions or want to collaborate? Fill out the form or reach out via email.
-    </p>
-    <form class="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
-      <input type="text" placeholder="Full Name" class="p-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-tecailEmerald">
-      <input type="email" placeholder="Email" class="p-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-tecailEmerald">
-      <input type="text" placeholder="Subject" class="p-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-tecailEmerald md:col-span-2">
-      <textarea placeholder="Message" class="p-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-tecailEmerald md:col-span-2 h-40"></textarea>
-      <button type="submit" class="bg-tecailEmerald text-white px-6 py-3 rounded-lg md:col-span-2 hover:bg-green-500 transition">
-        Send Message
-      </button>
-    </form>
+  <!-- ====================================================================== -->
+  <!-- CONTACT（联系方式 + 表单） -->
+  <!-- 表单为前端示例：注释说明如何接后端（Azure Function / Formspree / Netlify Forms） -->
+  <!-- ====================================================================== -->
+  <section id="contact" class="py-12 bg-white">
+    <div class="max-w-7xl mx-auto px-6 md:px-8">
+      <h2 class="text-h2 font-bold text-primaryPurple text-center mb-6">Contact Us</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- 左侧：联系信息 -->
+        <div class="space-y-4 text-textGray">
+          <p><strong>Email (public):</strong> <a href="mailto:info@tecail.com" class="text-primaryPurple hover:underline">info@tecail.com</a></p>
+          <p><strong>Business (sales):</strong> <a href="mailto:calvin@tecail.com" class="text-primaryPurple hover:underline">calvin@tecail.com</a></p>
+          <p><strong>Phone:</strong> +86 15302763720</p>
+          <p><strong>Address:</strong> Room 521, 5th Floor, Smart Innovation Valley, Bulong Road, Longhua District, Shenzhen, China</p>
+          <p><strong>Office Hours:</strong> Mon–Fri 09:00–18:00 (GMT+8)</p>
+          <p><strong>Suggested Email Subjects / Keywords:</strong> Inquiry / Demo Request / Partnership / OEM/ODM</p>
+
+          <!-- 地图或办公场所截图占位（如需嵌入 Google Maps，请替换为 iframe） -->
+          <div class="mt-4">
+            <img src="images/map-placeholder.jpg" alt="Map placeholder" class="w-full h-40 object-cover rounded-md shadow-sm" loading="lazy">
+            <!-- 注：如果你要嵌入谷歌地图 iframe，请注意域名和隐私政策 -->
+          </div>
+
+          <!-- 社交链接占位 -->
+          <div class="flex items-center gap-4 mt-3">
+            <a href="#" class="text-textGray hover:text-primaryPurple">LinkedIn</a>
+            <a href="#" class="text-textGray hover:text-primaryPurple">Twitter</a>
+            <a href="#" class="text-textGray hover:text-primaryPurple">YouTube</a>
+          </div>
+        </div>
+
+        <!-- 右侧：联系表单（前端占位） -->
+        <div class="bg-white p-6 rounded-2xl shadow-sm">
+          <!-- 注：要在静态站点上接收表单，请将 action 指向后端 endpoint，或使用第三方服务 -->
+          <!-- 示例：使用 Azure Function / Netlify Forms / Formspree 等 -->
+          <form id="contactForm" class="grid grid-cols-1 gap-4" action="#" method="POST" novalidate>
+            <!-- 推荐字段：name / email / company / inquiryType / message -->
+            <input name="name" type="text" placeholder="Full name" class="w-full border border-purpleSoft rounded-md px-3 py-2" required>
+            <input name="email" type="email" placeholder="Email" class="w-full border border-purpleSoft rounded-md px-3 py-2" required>
+            <input name="company" type="text" placeholder="Company (optional)" class="w-full border border-purpleSoft rounded-md px-3 py-2">
+            <select name="inquiryType" class="w-full border border-purpleSoft rounded-md px-3 py-2">
+              <option value="">Select inquiry type</option>
+              <option>Product Inquiry</option>
+              <option>OEM/ODM</option>
+              <option>Partnership</option>
+              <option>Support</option>
+            </select>
+            <textarea name="message" placeholder="Message" class="w-full border border-purpleSoft rounded-md px-3 py-2 h-28"></textarea>
+
+            <div class="flex items-center gap-3">
+              <button type="submit" class="bg-purpleDark hover:bg-primaryPurple text-white px-5 py-2 rounded-md transition">Send Message</button>
+              <button type="button" id="resetBtn" class="text-textGray px-4 py-2 rounded-md border border-purpleSoft">Reset</button>
+            </div>
+
+            <p id="formNotice" class="text-xs text-textGray hidden">Form submission is a demo — integrate with your backend to process messages.</p>
+          </form>
+
+          <!-- 表单集成提示（供开发者参考） -->
+          <!--
+            - Azure Static Web Apps: 可使用 Azure Functions 作为表单处理 endpoint（HTTP trigger）。
+            - Netlify Forms: 在 form 元素上添加 data-netlify="true"，并部署到 Netlify。
+            - Formspree: 将 action 指向 Formspree 的 endpoint。
+            - 安全：后端需验证与防垃圾（captcha、rate limit）。
+          -->
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- ================= Footer / 页脚 ================= -->
-  <footer class="bg-gray-900 text-gray-300 py-10 mt-20">
-    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center md:items-start space-y-6 md:space-y-0">
+  <!-- ====================================================================== -->
+  <!-- FOOTER（页脚） -->
+  <!-- ====================================================================== -->
+  <footer class="bg-gray-900 text-gray-300 py-8 mt-8">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between gap-6">
       <div>
-        <h3 class="text-xl font-bold text-white mb-2">TECAIL</h3>
-        <p class="text-sm max-w-sm">Enhancing family healthcare through innovation and care.</p>
+        <h4 class="text-white font-semibold">TECAIL</h4>
+        <p class="text-sm text-gray-400 max-w-sm">Enhancing family healthcare through innovation and care.</p>
       </div>
-      <div class="flex flex-col space-y-2 text-sm">
-        <a href="#about" class="hover:text-white">About</a>
-        <a href="#products" class="hover:text-white">Products</a>
-        <a href="#services" class="hover:text-white">Services</a>
-        <a href="#team" class="hover:text-white">Team</a>
-        <a href="#contact" class="hover:text-white">Contact</a>
-      </div>
-      <div class="text-sm space-y-2">
-        <p><strong>Email:</strong> <a href="mailto:info@tecail.com" class="hover:text-white underline">info@tecail.com</a></p>
-        <p><strong>Business:</strong> <a href="mailto:calvin@tecail.com" class="hover:text-white underline">calvin@tecail.com</a></p>
+
+      <div class="flex gap-8">
+        <div class="text-sm">
+          <p class="text-gray-300 font-semibold">Company</p>
+          <ul class="mt-2 space-y-2">
+            <li><a href="#about" class="hover:text-white">About</a></li>
+            <li><a href="#products" class="hover:text-white">Products</a></li>
+            <li><a href="#services" class="hover:text-white">Services</a></li>
+          </ul>
+        </div>
+
+        <div class="text-sm">
+          <p class="text-gray-300 font-semibold">Contact</p>
+          <ul class="mt-2 space-y-2">
+            <li><a href="mailto:info@tecail.com" class="hover:text-white">info@tecail.com</a></li>
+            <li><a href="mailto:calvin@tecail.com" class="hover:text-white">calvin@tecail.com</a></li>
+            <li class="text-gray-400">+86 15302763720</li>
+          </ul>
+        </div>
       </div>
     </div>
-    <div class="mt-8 text-center text-sm text-gray-400">
-      © 2020-2025 TECAIL Health Group. All rights reserved. | 
-      <a href="#" class="hover:text-white">Privacy Policy</a> | 
-      <a href="#" class="hover:text-white">Terms of Service</a>
+
+    <div class="mt-6 text-center text-sm text-gray-500">
+      © 2020-2025 TECAIL Health Group. All rights reserved.
     </div>
   </footer>
 
-  <!-- ================= JS 控制移动端汉堡菜单 ================= -->
+  <!-- ====================================================================== -->
+  <!-- JS：移动端菜单 & 表单示例行为（均为前端演示，可替换为真实逻辑） -->
+  <!-- ====================================================================== -->
   <script>
+    // --- 移动端汉堡菜单控制（含 aria-expanded 切换，增强无障碍） ---
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
-    // 点击汉堡图标切换移动端菜单显示/隐藏
+
     hamburger.addEventListener('click', () => {
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', String(!expanded));
       mobileMenu.classList.toggle('hidden');
     });
+
+    // --- 表单前端演示：阻止默认提交并显示提示（请替换为真实后端提交） ---
+    const contactForm = document.getElementById('contactForm');
+    const formNotice = document.getElementById('formNotice');
+    const resetBtn = document.getElementById('resetBtn');
+
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // 简单表单验证示例（可扩展）
+      const name = contactForm.elements['name'].value.trim();
+      const email = contactForm.elements['email'].value.trim();
+      if (!name || !email) {
+        formNotice.classList.remove('hidden');
+        formNotice.textContent = 'Please fill in at least your name and email.';
+        return;
+      }
+      // 模拟提交结果提示
+      formNotice.classList.remove('hidden');
+      formNotice.textContent = 'Form submitted (demo). Integrate with your backend to process messages.';
+      // 如果希望提交后清空表单，打开下一行
+      // contactForm.reset();
+    });
+
+    resetBtn.addEventListener('click', () => {
+      contactForm.reset();
+      formNotice.classList.add('hidden');
+    });
   </script>
+
+  <!-- ====================================================================== -->
+  <!-- 文件/图片结构建议（放在 repository README 或注释中）：
+        /index.html
+        /images/
+          web-logo.png                (建议 SVG/PNG, <200KB)
+          hero-placeholder.jpg        (1920x1080, WebP/JPG, 100-300KB)
+          about-hero-placeholder.jpg  (1920x700, WebP/JPG)
+          product-bp-placeholder.jpg  (800x600 或 400x300)
+          product-ecg-placeholder.jpg
+          product-wearable-placeholder.jpg
+          product-glucose-placeholder.jpg
+          team-sangor.jpg             (600x600 或 800x600)
+          team-calvin.jpg
+          team-tao.jpg
+          team-placeholder.jpg
+          map-placeholder.jpg         (800x400)
+       建议图片格式：WebP（首选）或压缩 JPG；team 图可为方形头像 600x600。
+  ====================================================================== -->
 
 </body>
 </html>
