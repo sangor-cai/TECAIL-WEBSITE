@@ -7,7 +7,7 @@
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    /* 自定义滚动平滑效果 */
+    /* 平滑滚动效果 */
     html {
       scroll-behavior: smooth;
     }
@@ -16,27 +16,30 @@
 <body class="font-sans text-gray-900">
 
   <!-- Header / 导航栏 -->
-  <header class="fixed top-0 left-0 w-full bg-white shadow-sm z-50">
+  <header class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-      <div class="text-2xl font-bold tracking-wide">TECAIL</div>
+      <!-- Logo 位置预留，可替换为图片，建议尺寸：宽120px，高40px，格式PNG/SVG -->
+      <div class="text-2xl font-bold tracking-wide">
+        <img src="images/web-logo.png" alt="TECAIL Logo" class="h-10 w-auto">
+      </div>
 
       <!-- PC端菜单 -->
-      <nav class="hidden md:flex space-x-8 text-base font-medium">
-        <a href="#about" class="hover:text-emerald-600 transition">About</a>
-        <a href="#products" class="hover:text-emerald-600 transition">Products</a>
-        <a href="#services" class="hover:text-emerald-600 transition">Services</a>
-        <a href="#team" class="hover:text-emerald-600 transition">Team</a>
+      <nav class="hidden md:flex space-x-8 text-base font-medium text-gray-700">
+        <a href="#about" class="hover:text-blue-700 transition">About</a>
+        <a href="#products" class="hover:text-green-600 transition">Products</a>
+        <a href="#services" class="hover:text-teal-600 transition">Services</a>
+        <a href="#team" class="hover:text-indigo-600 transition">Team</a>
         <a href="#contact" class="hover:text-emerald-600 transition">Contact</a>
       </nav>
 
       <!-- PC端按钮 & 移动端汉堡 -->
       <div class="flex items-center space-x-4">
-        <a href="#contact" class="hidden md:inline-block bg-emerald-600 text-white px-4 py-2 rounded-lg">
+        <a href="#contact" class="hidden md:inline-block bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-green-500 transition">
           Get in Touch
         </a>
         <button id="hamburger" class="md:hidden focus:outline-none">
           <!-- 汉堡图标 -->
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path id="hamburger-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M4 6h16M4 12h16M4 18h16"/>
           </svg>
@@ -46,21 +49,22 @@
 
     <!-- 移动端菜单 -->
     <div id="mobileMenu" class="md:hidden hidden bg-white shadow-lg">
-      <nav class="flex flex-col space-y-4 px-6 py-6 text-base font-medium">
-        <a href="#about" class="hover:text-emerald-600 transition">About</a>
-        <a href="#products" class="hover:text-emerald-600 transition">Products</a>
-        <a href="#services" class="hover:text-emerald-600 transition">Services</a>
-        <a href="#team" class="hover:text-emerald-600 transition">Team</a>
+      <nav class="flex flex-col space-y-4 px-6 py-6 text-base font-medium text-gray-700">
+        <a href="#about" class="hover:text-blue-700 transition">About</a>
+        <a href="#products" class="hover:text-green-600 transition">Products</a>
+        <a href="#services" class="hover:text-teal-600 transition">Services</a>
+        <a href="#team" class="hover:text-indigo-600 transition">Team</a>
         <a href="#contact" class="hover:text-emerald-600 transition">Contact</a>
-        <a href="#contact" class="bg-emerald-600 text-white px-4 py-2 rounded-lg text-center mt-2 block">Get in Touch</a>
+        <a href="#contact" class="bg-emerald-600 text-white px-4 py-2 rounded-lg text-center mt-2 block hover:bg-green-500 transition">Get in Touch</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero Section / 主页大图 -->
+  <!-- Hero Section / 首页大图 -->
   <section class="relative h-screen flex items-center justify-center bg-cover bg-center mt-16"
            style="background-image: url('images/hero-placeholder.jpg');">
-    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    <!-- 背景遮罩 -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/60"></div>
     <div class="relative z-10 text-center text-white px-6">
       <h1 class="text-4xl md:text-6xl font-bold mb-6">
         Creating Exceptional Healthcare Product Experiences
@@ -68,7 +72,7 @@
       <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8">
         TECAIL integrates AI and precision medical technologies to deliver trusted home healthcare solutions worldwide.
       </p>
-      <a href="#products" class="bg-emerald-600 text-white px-6 py-3 rounded-xl text-lg inline-block">
+      <a href="#products" class="bg-emerald-600 text-white px-6 py-3 rounded-xl text-lg inline-block hover:bg-green-500 transition">
         Learn More
       </a>
     </div>
@@ -76,46 +80,48 @@
 
   <!-- About Section / 关于我们 -->
   <section id="about" class="py-20 bg-white max-w-7xl mx-auto px-6 text-center">
-    <h2 class="text-3xl md:text-4xl font-bold mb-6">About Us</h2>
-    <p class="max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-indigo-800">About Us</h2>
+    <p class="max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed mb-10">
       TECAIL is a high-tech company focused on home healthcare products, committed to deeply integrating AI and precision medical technologies.
       Headquartered in Shenzhen, China, TECAIL provides trusted, high-quality health solutions to families worldwide, combining global vision with localized manufacturing capabilities.
     </p>
-    <div class="mt-10 flex justify-center">
+    <!-- About 图像预留位置，建议宽度1000px，高度500px，格式 JPG/PNG/SVG -->
+    <div class="flex justify-center">
       <img src="images/about-placeholder.jpg" alt="About TECAIL" class="rounded-2xl shadow-lg w-full md:w-2/3 object-cover">
     </div>
   </section>
 
   <!-- Products Section / 产品展示 -->
   <section id="products" class="py-20 bg-gray-50 max-w-7xl mx-auto px-6 text-center">
-    <h2 class="text-3xl md:text-4xl font-bold mb-12">Our Core Products</h2>
+    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-green-700">Our Core Products</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-      <!-- 产品卡片 -->
+      <!-- 产品卡片示例 -->
       <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
+        <!-- 产品图占位，建议尺寸：宽400px，高300px -->
         <img src="images/product-bp-placeholder.jpg" alt="Smart Blood Pressure Monitor" class="h-48 w-full object-cover">
         <div class="p-6">
-          <h3 class="text-xl font-semibold mb-2">Smart Blood Pressure Monitor</h3>
+          <h3 class="text-xl font-semibold mb-2 text-blue-800">Smart Blood Pressure Monitor</h3>
           <p class="text-gray-600 text-sm">High-precision sensors with AI algorithms for accurate monitoring.</p>
         </div>
       </div>
       <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
         <img src="images/product-ecg-placeholder.jpg" alt="Portable ECG Device" class="h-48 w-full object-cover">
         <div class="p-6">
-          <h3 class="text-xl font-semibold mb-2">Portable ECG Device</h3>
+          <h3 class="text-xl font-semibold mb-2 text-indigo-700">Portable ECG Device</h3>
           <p class="text-gray-600 text-sm">Home-friendly heart monitoring with real-time detection.</p>
         </div>
       </div>
       <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
         <img src="images/product-wearable-placeholder.jpg" alt="Wearable Health Devices" class="h-48 w-full object-cover">
         <div class="p-6">
-          <h3 class="text-xl font-semibold mb-2">Wearable Health Devices</h3>
+          <h3 class="text-xl font-semibold mb-2 text-teal-700">Wearable Health Devices</h3>
           <p class="text-gray-600 text-sm">All-day heart rate, SpO2, and activity tracking.</p>
         </div>
       </div>
       <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
         <img src="images/product-glucose-placeholder.jpg" alt="Smart Glucose Meter" class="h-48 w-full object-cover">
         <div class="p-6">
-          <h3 class="text-xl font-semibold mb-2">Smart Glucose Meter</h3>
+          <h3 class="text-xl font-semibold mb-2 text-emerald-700">Smart Glucose Meter</h3>
           <p class="text-gray-600 text-sm">Cloud syncing and analytics for diabetes management.</p>
         </div>
       </div>
