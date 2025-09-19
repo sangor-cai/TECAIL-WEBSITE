@@ -4,43 +4,45 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TECAIL - Home Healthcare Solutions</title>
+  
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind 自定义品牌色配置 -->
   <script>
-    // 自定义品牌色变量
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            tecailBlue: '#1E40AF',   // 主色蓝
-            tecailGreen: '#10B981',  // 产品亮绿
-            tecailTeal: '#14B8A6',   // 服务/健康色
-            tecailIndigo: '#4F46E5', // 团队/科技感色
-            tecailEmerald: '#059669',// 联系按钮/强调色
-            tecailGray: '#F9FAFB',   // 背景浅灰
+            tecailBlue: '#1E40AF',    // 主蓝色，用于标题和重点文字
+            tecailGreen: '#10B981',   // 主绿色，用于产品标题/按钮
+            tecailTeal: '#14B8A6',    // 青色，用于服务板块标题
+            tecailIndigo: '#4F46E5',  // 靛蓝，用于团队板块标题
+            tecailEmerald: '#059669', // 翡翠绿，用于按钮和联系方式
+            tecailGray: '#F9FAFB',    // 浅灰色，用作背景
           }
         }
       }
     }
   </script>
+
   <style>
-    /* 平滑滚动效果 */
-    html {
-      scroll-behavior: smooth;
-    }
+    /* 平滑滚动效果，可根据需要移除 */
+    html { scroll-behavior: smooth; }
   </style>
 </head>
 <body class="font-sans text-gray-900">
 
-  <!-- Header / 导航栏 -->
+  <!-- ================= Header / 导航栏 ================= -->
   <header class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-      <!-- Logo 位置预留，可替换为图片，建议尺寸：宽120px，高40px，PNG/SVG -->
+      <!-- Logo 位置预留，可替换为图片 -->
+      <!-- 建议尺寸: 宽120px 高40px, PNG/SVG -->
       <div class="text-2xl font-bold tracking-wide">
         <img src="images/web-logo.png" alt="TECAIL Logo" class="h-10 w-auto md:h-12">
       </div>
 
-      <!-- PC端菜单 -->
+      <!-- PC端导航菜单 -->
       <nav class="hidden md:flex space-x-8 text-base font-medium text-gray-700">
         <a href="#about" class="hover:text-tecailBlue transition">About</a>
         <a href="#products" class="hover:text-tecailGreen transition">Products</a>
@@ -54,11 +56,10 @@
         <a href="#contact" class="hidden md:inline-block bg-tecailEmerald text-white px-4 py-2 rounded-lg hover:bg-green-500 transition">
           Get in Touch
         </a>
+        <!-- 汉堡菜单按钮（移动端） -->
         <button id="hamburger" class="md:hidden focus:outline-none">
-          <!-- 汉堡图标 -->
           <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path id="hamburger-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
           </svg>
         </button>
       </div>
@@ -72,15 +73,17 @@
         <a href="#services" class="hover:text-tecailTeal transition">Services</a>
         <a href="#team" class="hover:text-tecailIndigo transition">Team</a>
         <a href="#contact" class="hover:text-tecailEmerald transition">Contact</a>
-        <a href="#contact" class="bg-tecailEmerald text-white px-4 py-2 rounded-lg text-center mt-2 block hover:bg-green-500 transition">Get in Touch</a>
+        <a href="#contact" class="bg-tecailEmerald text-white px-4 py-2 rounded-lg text-center mt-2 block hover:bg-green-500 transition">
+          Get in Touch
+        </a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero Section / 首页大图 -->
+  <!-- ================= Hero Section / 首页大图 ================= -->
   <section class="relative h-screen flex items-center justify-center bg-cover bg-center mt-16"
            style="background-image: url('images/hero-placeholder.jpg');">
-    <!-- 背景遮罩 -->
+    <!-- 背景渐变遮罩 -->
     <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/60"></div>
     <div class="relative z-10 text-center text-white px-6">
       <h1 class="text-4xl md:text-6xl font-bold mb-6">
@@ -95,32 +98,35 @@
     </div>
   </section>
 
-  <!-- About Section / 关于我们 -->
+  <!-- ================= About Section / 关于我们 ================= -->
   <section id="about" class="py-20 bg-white max-w-7xl mx-auto px-6 text-center">
     <h2 class="text-3xl md:text-4xl font-bold mb-6 text-tecailIndigo">About Us</h2>
     <p class="max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed mb-10">
       TECAIL is a high-tech company focused on home healthcare products, committed to deeply integrating AI and precision medical technologies.
       Headquartered in Shenzhen, China, TECAIL provides trusted, high-quality health solutions to families worldwide, combining global vision with localized manufacturing capabilities.
     </p>
-    <!-- About 图像预留位置，建议宽度1000px，高度500px，移动端宽度100%，格式 JPG/PNG/SVG，压缩至100-150KB -->
+    <!-- About 图片占位 -->
+    <!-- 建议尺寸: 宽1000px 高500px, JPG/PNG/SVG -->
+    <!-- 可优化: 图片 WebP 格式, 添加 loading="lazy" -->
     <div class="flex justify-center">
       <img src="images/about-placeholder.jpg" alt="About TECAIL" class="rounded-2xl shadow-lg w-full md:w-2/3 object-cover">
     </div>
   </section>
 
-  <!-- Products Section / 产品展示 -->
+  <!-- ================= Products Section / 产品展示 ================= -->
   <section id="products" class="py-20 bg-tecailGray max-w-7xl mx-auto px-6 text-center">
     <h2 class="text-3xl md:text-4xl font-bold mb-12 text-tecailGreen">Our Core Products</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
       <!-- 产品卡片示例 -->
+      <!-- 建议产品图尺寸: 宽400px 高300px, JPG/PNG/WebP -->
       <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
-        <!-- 产品图占位，建议尺寸：宽400px，高300px，移动端宽度自动适配，格式 JPG/PNG/WebP，压缩100-150KB -->
         <img src="images/product-bp-placeholder.jpg" alt="Smart Blood Pressure Monitor" class="h-48 w-full object-cover">
         <div class="p-6">
           <h3 class="text-xl font-semibold mb-2 text-tecailBlue">Smart Blood Pressure Monitor</h3>
           <p class="text-gray-600 text-sm">High-precision sensors with AI algorithms for accurate monitoring.</p>
         </div>
       </div>
+
       <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
         <img src="images/product-ecg-placeholder.jpg" alt="Portable ECG Device" class="h-48 w-full object-cover">
         <div class="p-6">
@@ -128,6 +134,7 @@
           <p class="text-gray-600 text-sm">Home-friendly heart monitoring with real-time detection.</p>
         </div>
       </div>
+
       <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
         <img src="images/product-wearable-placeholder.jpg" alt="Wearable Health Devices" class="h-48 w-full object-cover">
         <div class="p-6">
@@ -135,6 +142,7 @@
           <p class="text-gray-600 text-sm">All-day heart rate, SpO2, and activity tracking.</p>
         </div>
       </div>
+
       <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
         <img src="images/product-glucose-placeholder.jpg" alt="Smart Glucose Meter" class="h-48 w-full object-cover">
         <div class="p-6">
@@ -145,7 +153,72 @@
     </div>
   </section>
 
-  <!-- Footer / 页脚 -->
+  <!-- ================= Services Section / 服务能力 ================= -->
+  <section id="services" class="py-20 bg-white max-w-7xl mx-auto px-6 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-tecailTeal">Our Services</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div class="bg-tecailGray rounded-2xl p-8 shadow-md hover:shadow-xl transition">
+        <h3 class="text-xl font-semibold mb-4 text-tecailBlue">AI Health Analytics</h3>
+        <p class="text-gray-700 text-sm">Analyze health data using AI algorithms for proactive home monitoring.</p>
+      </div>
+      <div class="bg-tecailGray rounded-2xl p-8 shadow-md hover:shadow-xl transition">
+        <h3 class="text-xl font-semibold mb-4 text-tecailIndigo">Custom Device Integration</h3>
+        <p class="text-gray-700 text-sm">Tailored solutions to integrate multiple health devices for families.</p>
+      </div>
+      <div class="bg-tecailGray rounded-2xl p-8 shadow-md hover:shadow-xl transition">
+        <h3 class="text-xl font-semibold mb-4 text-tecailEmerald">Global Support & Consulting</h3>
+        <p class="text-gray-700 text-sm">Regulatory guidance, FDA/MDR compliance and international support.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Team Section / 团队介绍 ================= -->
+  <section id="team" class="py-20 bg-tecailGray max-w-7xl mx-auto px-6 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-tecailIndigo">Our Team</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10">
+      <!-- 团队成员卡片 -->
+      <!-- 图片建议尺寸: 宽400px 高400px, JPG/PNG/WebP -->
+      <div class="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition">
+        <img src="images/team-placeholder.jpg" alt="Team Member" class="h-48 w-full object-cover rounded-xl mb-4">
+        <h3 class="text-lg font-semibold text-tecailBlue">John Doe</h3>
+        <p class="text-gray-600 text-sm">CEO & Founder</p>
+      </div>
+      <div class="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition">
+        <img src="images/team-placeholder.jpg" alt="Team Member" class="h-48 w-full object-cover rounded-xl mb-4">
+        <h3 class="text-lg font-semibold text-tecailGreen">Jane Smith</h3>
+        <p class="text-gray-600 text-sm">CTO</p>
+      </div>
+      <div class="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition">
+        <img src="images/team-placeholder.jpg" alt="Team Member" class="h-48 w-full object-cover rounded-xl mb-4">
+        <h3 class="text-lg font-semibold text-tecailIndigo">Alice Lee</h3>
+        <p class="text-gray-600 text-sm">Head of Product</p>
+      </div>
+      <div class="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition">
+        <img src="images/team-placeholder.jpg" alt="Team Member" class="h-48 w-full object-cover rounded-xl mb-4">
+        <h3 class="text-lg font-semibold text-tecailEmerald">Bob Chen</h3>
+        <p class="text-gray-600 text-sm">Head of Marketing</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Contact Section / 联系我们 ================= -->
+  <section id="contact" class="py-20 bg-white max-w-7xl mx-auto px-6 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-tecailEmerald">Contact Us</h2>
+    <p class="max-w-2xl mx-auto text-gray-700 mb-8">
+      Have questions or want to collaborate? Fill out the form or reach out via email.
+    </p>
+    <form class="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+      <input type="text" placeholder="Full Name" class="p-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-tecailEmerald">
+      <input type="email" placeholder="Email" class="p-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-tecailEmerald">
+      <input type="text" placeholder="Subject" class="p-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-tecailEmerald md:col-span-2">
+      <textarea placeholder="Message" class="p-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-tecailEmerald md:col-span-2 h-40"></textarea>
+      <button type="submit" class="bg-tecailEmerald text-white px-6 py-3 rounded-lg md:col-span-2 hover:bg-green-500 transition">
+        Send Message
+      </button>
+    </form>
+  </section>
+
+  <!-- ================= Footer / 页脚 ================= -->
   <footer class="bg-gray-900 text-gray-300 py-10 mt-20">
     <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center md:items-start space-y-6 md:space-y-0">
       <div>
@@ -165,14 +238,17 @@
       </div>
     </div>
     <div class="mt-8 text-center text-sm text-gray-400">
-      © 2020-2025 TECAIL Health Group. All rights reserved. | <a href="#" class="hover:text-white">Privacy Policy</a> | <a href="#" class="hover:text-white">Terms of Service</a>
+      © 2020-2025 TECAIL Health Group. All rights reserved. | 
+      <a href="#" class="hover:text-white">Privacy Policy</a> | 
+      <a href="#" class="hover:text-white">Terms of Service</a>
     </div>
   </footer>
 
-  <!-- JS 控制移动端汉堡菜单 -->
+  <!-- ================= JS 控制移动端汉堡菜单 ================= -->
   <script>
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
+    // 点击汉堡图标切换移动端菜单显示/隐藏
     hamburger.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
     });
